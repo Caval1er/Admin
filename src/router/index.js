@@ -1,21 +1,49 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
+import Layout from '@/layout/index.vue'
 /*
  * 公开路由表
  */
-const publicRoutes = [
+export const constantRoutes = [
   {
     path: '/login',
-    component: () => import('@/views/login/index.vue')
+    component: () => import('@/views/login')
   },
   {
     path: '/',
-    component: () => import('@/layout/index.vue')
+    component: () => import('@/layout'),
+    redirect: '/dashboard',
+    children: [
+      {
+        path: 'dashboard',
+        component: () => import('@/views/dashboard/index.vue')
+      }
+    ]
+  }
+]
+
+/*
+ *  权限路由表
+ */
+
+export const asyncRoutes = [
+  {
+    path: '/permission',
+    component: Layout,
+    children: [
+      {
+        path: 'p1',
+        component: () => import('@/views/permission'),
+        meta: {
+          roles: ['editor']
+        }
+      }
+    ]
   }
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
-  routes: publicRoutes
+  history: createWebHistory(),
+  routes: constantRoutes
+  // scrollBehavior: () => ({ top: 0 })
 })
-
 export default router
