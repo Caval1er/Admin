@@ -53,6 +53,7 @@
 </template>
 
 <script setup>
+// import * as ElIcons from '@element-plus/icons'
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 import { validatePassword } from './rule'
@@ -61,6 +62,7 @@ const loginForm = ref({
   username: 'super-admin',
   password: '123456'
 })
+// const name = 'Share'
 // 校验规则
 const loginRules = ref({
   username: [

@@ -56,6 +56,10 @@
     .svg-icon {
       margin-right: 16px;
     }
+    .el-svg-icon {
+      margin-top: -4px;
+      margin-right: 16px;
+    }
 
     .sub-el-icon {
       margin-right: 12px;
@@ -68,6 +72,11 @@
       width: 100% !important;
     }
 
+    .menu-item-container {
+      display: flex;
+      align-items: center;
+    }
+
     // menu hover
     .submenu-title-noDropdown,
     .el-submenu__title {
@@ -75,15 +84,21 @@
         background-color: $menuHover !important;
       }
     }
-
+    .submenu-title-noDropdown.is-active {
+      background-color: $menuHover !important;
+    }
+    .el-submenu .el-menu-item.is-active {
+      background-color: $subMenuHover !important;
+    }
     .is-active > .el-submenu__title {
       color: $subMenuActiveText !important;
+      // background-color: $subMenuActiceBg !important;
     }
 
     & .nest-menu .el-submenu > .el-submenu__title,
     & .el-submenu .el-menu-item {
       min-width: $sideBarWidth !important;
-      background-color: $subMenuBg !important;
+      background-color: $subMenuBg;
 
       &:hover {
         background-color: $subMenuHover !important;
