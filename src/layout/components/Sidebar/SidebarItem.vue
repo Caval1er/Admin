@@ -20,7 +20,7 @@
       </app-link>
     </template>
 
-    <el-submenu v-else :index="resolvePath(item.path)">
+    <el-sub-menu v-else :index="resolvePath(item.path)" popper-append-to-body>
       <template #title>
         <Item
           v-if="item.meta"
@@ -37,7 +37,7 @@
         :base-path="resolvePath(child.path)"
         class="nested-menu"
       />
-    </el-submenu>
+    </el-sub-menu>
   </div>
 </template>
 

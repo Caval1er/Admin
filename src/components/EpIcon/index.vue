@@ -8,7 +8,7 @@
 
 <script setup>
 import {} from 'vue'
-import * as ElIcons from '@element-plus/icons'
+import * as ElIcons from '@element-plus/icons-vue'
 defineProps({
   name: {
     type: String,

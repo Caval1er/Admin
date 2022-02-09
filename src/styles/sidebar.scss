@@ -57,8 +57,13 @@
       margin-right: 16px;
     }
     .el-svg-icon {
-      margin-top: -4px;
       margin-right: 16px;
+      .el-icon {
+        justify-content: flex-start;
+        margin-right: 0;
+        width: 100% !important;
+        font-size: inherit;
+      }
     }
 
     .sub-el-icon {
