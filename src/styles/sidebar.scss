@@ -121,7 +121,7 @@
     }
 
     .submenu-title-noDropdown {
-      padding: 0 !important;
+      // padding: 0 !important;
       position: relative;
 
       .el-tooltip {
@@ -157,18 +157,23 @@
       }
     }
 
-    .el-menu--collapse {
-      .el-submenu {
-        & > .el-submenu__title {
-          & > span {
-            height: 0;
-            width: 0;
-            overflow: hidden;
-            visibility: hidden;
-            display: inline-block;
-          }
-        }
-      }
+    .el-menu--collapse .el-menu-item .menu-item-container > span,
+    .el-menu--collapse
+      .el-sub-menu
+      > .el-sub-menu__title
+      > .menu-item-container
+      > span {
+      height: 0;
+      width: 0;
+      overflow: hidden;
+      visibility: hidden;
+      display: inline-block;
+    }
+    .el-menu--collapse
+      .el-sub-menu
+      > .el-sub-menu__title
+      > .el-sub-menu__icon-arrow {
+      display: none;
     }
   }
 

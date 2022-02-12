@@ -1,5 +1,10 @@
 <template>
   <div class="navbar">
+    <hamburger
+      class="hamburger-container"
+      @toggleClick="toggleSideBar"
+      :is-active="sidebar.isOpened"
+    />
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -28,7 +33,15 @@
 </template>
 
 <script setup>
-import {} from 'vue'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+import Hamburger from '@/components/Hamburger'
+const store = useStore()
+// sideBar
+function toggleSideBar() {
+  store.dispatch('sidebar/toggleSidebar')
+}
+const sidebar = computed(() => store.getters.sidebar)
 </script>
 
 <style lang="scss" scoped>
@@ -38,12 +51,21 @@ import {} from 'vue'
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   .right-menu {
     height: 100%;
     display: flex;
     align-items: center;
-    float: right;
     padding: 0 16px;
+  }
+  .hamburger-container {
+    cursor: pointer;
+    transition: background 0.3s;
+    &:hover {
+      background: rgba(0, 0, 0, 0.025);
+    }
   }
   :deep(.avatar-container) {
     cursor: pointer;

@@ -35,7 +35,7 @@ export const asyncRoutes = [
     component: Layout,
     meta: {
       title: 'permission',
-      icon: 'permission'
+      icon: 'el-icon-Share'
     },
     children: [
       {
