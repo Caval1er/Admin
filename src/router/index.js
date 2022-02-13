@@ -13,12 +13,12 @@ export const constantRoutes = [
     path: '/',
     component: Layout,
     redirect: '/dashboard',
-    name: 'Dashboard',
+    name: 'Dashboard-Father',
     children: [
       {
         path: 'dashboard',
         component: () => import('@/views/dashboard/index.vue'),
-        name: 'Dashboard-1',
+        name: 'Dashboard',
         meta: { title: 'Dashboard', icon: 'el-icon-Share' }
       }
     ]
@@ -33,6 +33,7 @@ export const asyncRoutes = [
   {
     path: '/permission',
     component: Layout,
+    redirect: '/permission/p1',
     meta: {
       title: 'permission',
       icon: 'el-icon-Share'

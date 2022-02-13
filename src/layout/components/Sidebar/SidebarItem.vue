@@ -20,7 +20,7 @@
       </app-link>
     </template>
 
-    <el-sub-menu v-else :index="resolvePath(item.path)" popper-append-to-body>
+    <el-sub-menu v-else :index="basePath" popper-append-to-body>
       <template #title>
         <Item
           v-if="item.meta"
@@ -28,7 +28,6 @@
           :title="item.meta.title"
         />
       </template>
-
       <sidebar-item
         v-for="child in item.children"
         :key="child.path"

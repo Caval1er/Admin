@@ -5,6 +5,7 @@
       @toggleClick="toggleSideBar"
       :is-active="sidebar.isOpened"
     />
+    <Breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -36,6 +37,7 @@
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 import Hamburger from '@/components/Hamburger'
+import Breadcrumb from '@/components/Breadcrumb'
 const store = useStore()
 // sideBar
 function toggleSideBar() {
@@ -66,6 +68,9 @@ const sidebar = computed(() => store.getters.sidebar)
     &:hover {
       background: rgba(0, 0, 0, 0.025);
     }
+  }
+  .breadcrumb-container {
+    width: calc(100% - 142px);
   }
   :deep(.avatar-container) {
     cursor: pointer;
