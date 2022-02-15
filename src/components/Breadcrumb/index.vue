@@ -60,4 +60,17 @@ watch(route, () => {
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.breadcrumb {
+  .no-redirect {
+    color: #97a8be;
+    cursor: text;
+  }
+  .el-breadcrumb__item {
+    .el-breadcrumb__inner a {
+      font-weight: 550;
+      // color: #606266;
+    }
+  }
+}
+</style>
