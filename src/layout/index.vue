@@ -7,10 +7,11 @@
     />
     <!-- 左侧menu -->
     <Sidebar class="sidebar-container"></Sidebar>
-    <div class="main-container">
+    <div class="main-container hasTagsView">
       <div class="fixed-header">
         <!-- 顶部navbar -->
         <nav-bar />
+        <tags-view></tags-view>
       </div>
       <!-- 内容区 -->
       <app-main></app-main>
@@ -24,6 +25,7 @@ import { computed } from 'vue'
 import NavBar from './components/NavBar.vue'
 import Sidebar from './components/Sidebar'
 import AppMain from './components/AppMain.vue'
+import TagsView from './components/TagsView'
 import { useStore } from 'vuex'
 import Resize from './mixin/ResizeHandler'
 Resize()
