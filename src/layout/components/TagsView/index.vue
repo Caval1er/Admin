@@ -55,7 +55,7 @@ const filterAffixTags = (routes, basePath = '/') => {
 const initTag = (route) => {
   const affixTags = filterAffixTags(route)
   for (const tag of affixTags) {
-    addTag(tag)
+    store.dispatch('tagsView/addVisitedView', tag)
   }
 }
 const addTag = (tag) => {

@@ -19,7 +19,11 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index.vue'),
         name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'el-icon-Share', affix: true }
+        meta: {
+          title: 'Dashboard',
+          icon: 'el-icon-Share',
+          affix: true
+        }
       }
     ]
   }

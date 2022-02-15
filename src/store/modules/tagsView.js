@@ -10,8 +10,10 @@ const mutations = {
     sessionStorage.setItem('tagsView', JSON.stringify(state.visitedViews))
   },
   ADD_CACHED_VIEW(state, view) {
-    if (!view.name && state.cachedViews.includes(view.name)) return
-    state.cachedViews.push(view.name)
+    if (!view.name || state.cachedViews.includes(view.name)) return
+    if (view.meta && !view.meta.noCache) {
+      state.cachedViews.push(view.name)
+    }
   },
   DEL_VISITED_VIEW(state, index) {
     state.visitedViews.splice(index, 1)
