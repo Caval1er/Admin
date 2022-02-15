@@ -1,12 +1,12 @@
 import { getSidebarOpenedStatus } from '@/utils/sidebar'
 
-const state = {
+const state = () => ({
   sidebar: {
     isOpened: getSidebarOpenedStatus(),
     withoutAnimation: false
   },
   device: 'desktop'
-}
+})
 const mutations = {
   TOGGLE_SIDEBAR(state) {
     state.sidebar.isOpened = !state.sidebar.isOpened
