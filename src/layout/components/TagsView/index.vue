@@ -108,16 +108,17 @@ onMounted(() => {
       margin-right: 15px;
     }
     .el-tag {
-      border-width: 0;
+      border-width: 1px;
       border-style: solid;
-      border-color: #e5e7eb;
-      background-color: #42b983;
-      color: #fff;
+      border-color: #d8dce5;
+      background-color: #fff;
+      color: #495060;
     }
     &.active {
       .el-tag {
-        background-color: #409eff;
-        font-weight: 800;
+        background-color: #42b983;
+        color: #fff;
+        border-color: #42b983;
       }
       :deep(.el-tag__content)::before {
         content: '';
@@ -125,9 +126,10 @@ onMounted(() => {
         display: inline-block;
         width: 8px;
         height: 8px;
+        line-height: 8px;
         border-radius: 50%;
         position: relative;
-        margin-right: 2px;
+        margin-right: 6px;
       }
     }
   }

@@ -33,7 +33,8 @@ const permissionRoutes = computed(() => store.getters.permission_routes)
 const sidebar = computed(() => store.getters.sidebar)
 const isCollapse = computed(() => !sidebar.value.isOpened)
 const activeMenu = computed(() => {
-  const { path } = route
+  const { meta, path } = route
+  if (meta.activeMenu) return meta.activeMenu
   return path
 })
 </script>

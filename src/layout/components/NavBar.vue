@@ -56,6 +56,7 @@ const sidebar = computed(() => store.getters.sidebar)
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid #d8dce5;
   .right-menu {
     height: 100%;
     display: flex;

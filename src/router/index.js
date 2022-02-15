@@ -87,7 +87,9 @@ export const asyncRoutes = [
             component: () => import('@/views/nested/menu1/menu1-1'),
             name: 'Menu1-1',
             // hidden: true,
-            meta: { title: 'Menu 1-1' }
+            meta: {
+              title: 'Menu 1-1'
+            }
           },
           {
             path: 'menu1-2',
