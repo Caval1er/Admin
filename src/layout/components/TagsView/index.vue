@@ -113,12 +113,18 @@ onMounted(() => {
       border-color: #d8dce5;
       background-color: #fff;
       color: #495060;
+      :deep(.el-tag__close) {
+        color: #495060;
+      }
     }
     &.active {
       .el-tag {
         background-color: #42b983;
         color: #fff;
         border-color: #42b983;
+        :deep(.el-tag__close) {
+          color: #fff;
+        }
       }
       :deep(.el-tag__content)::before {
         content: '';
