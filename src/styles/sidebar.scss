@@ -96,8 +96,8 @@
     .submenu-title-noDropdown.is-active {
       background-color: $menuHover !important;
     }
-    .el-submenu .el-menu-item.is-active {
-      background-color: $subMenuHover !important;
+    .el-sub-menu .el-menu-item.is-active {
+      background-color: #263445 !important;
     }
     .is-active > .el-submenu__title {
       color: $subMenuActiveText !important;
