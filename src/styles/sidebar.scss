@@ -80,6 +80,10 @@
     .menu-item-container {
       display: flex;
       align-items: center;
+      .el-icon {
+        width: 1em;
+        font-size: inherit;
+      }
     }
 
     // menu hover

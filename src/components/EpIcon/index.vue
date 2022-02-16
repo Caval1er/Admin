@@ -1,9 +1,7 @@
 <template>
-  <i>
-    <el-icon :color="color">
-      <component :is="ElIcons[name]" :style="iconStyle" />
-    </el-icon>
-  </i>
+  <el-icon :color="color">
+    <component :is="ElIcons[name]" :style="iconStyle" />
+  </el-icon>
 </template>
 
 <script setup>

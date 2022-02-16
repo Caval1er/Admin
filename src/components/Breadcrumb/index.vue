@@ -56,7 +56,9 @@ onMounted(() => {
   getBreadcrumb()
 })
 watch(route, () => {
-  getBreadcrumb()
+  if (!route.path.startsWith('/redirect/')) {
+    getBreadcrumb()
+  }
 })
 </script>
 

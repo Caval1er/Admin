@@ -66,6 +66,7 @@ const classObj = computed(() => ({
   z-index: 9;
   width: calc(100% - #{$sideBarWidth});
   transition: width 0.28s;
+  box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
 }
 .hideSidebar .fixed-header {
   width: calc(100% - 54px);

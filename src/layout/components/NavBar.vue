@@ -52,11 +52,11 @@ const sidebar = computed(() => store.getters.sidebar)
   overflow: hidden;
   position: relative;
   background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  // box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #d8dce5;
+  border-bottom: 1px solid #f6f6f6;
   .right-menu {
     height: 100%;
     display: flex;
