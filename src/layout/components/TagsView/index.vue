@@ -63,7 +63,9 @@ const addTag = (tag) => {
 }
 const closeSelectedTag = (payload) => {
   store.dispatch('tagsView/delView', payload).then(({ visitedViews }) => {
-    toLastTag(visitedViews)
+    if (isActive(payload.view)) {
+      toLastTag(visitedViews)
+    }
   })
 }
 const toLastTag = (visitedViews) => {
