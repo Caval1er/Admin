@@ -30,7 +30,7 @@
           ><span class="title">刷新页面</span></el-dropdown-item
         >
         <el-dropdown-item command="closeOthers"
-          ><svg-icon icon="circle-close"></svg-icon
+          ><svg-icon icon="remove"></svg-icon
           ><span class="title">关闭其他</span></el-dropdown-item
         >
         <el-dropdown-item command="closeAll"

@@ -17,20 +17,17 @@ const mutations = {
   },
   DEL_VISITED_VIEW(state, index) {
     state.visitedViews.splice(index, 1)
+    sessionStorage.setItem('tagsView', JSON.stringify(state.visitedViews))
   },
   DEL_CACHED_VIEW(state, view) {
     const index = state.cachedViews.indexOf(view.name)
     index > -1 && state.cachedViews.splice(index, 1)
   },
   DEL_OTHER_VISITED_VIEW(state, view) {
-    // state.visitedViews.forEach((tag, index) => {
-    //   if (!tag.meta.affix && tag.path !== view.path) {
-    //     state.visitedViews.splice(index, 1)
-    //   }
-    // })
     state.visitedViews = state.visitedViews.filter(
       (v) => v.meta.affix || v.path === view.path
     )
+    sessionStorage.setItem('tagsView', JSON.stringify(state.visitedViews))
   },
   DEL_OTHER_CACHED_VIEW(state, view) {
     const index = state.cachedViews.indexOf(view.name)
@@ -45,6 +42,7 @@ const mutations = {
     // keep affix tags
     const affixTags = state.visitedViews.filter((tag) => tag.meta.affix)
     state.visitedViews = affixTags
+    sessionStorage.setItem('tagsView', JSON.stringify(state.visitedViews))
   },
   DEL_ALL_CACHED_VIEWS: (state) => {
     state.cachedViews = []
@@ -111,7 +109,7 @@ const actions = {
       resolve([...state.cachedViews])
     })
   },
-  delAllViews({ dispatch, state }, view) {
+  delAllViews({ dispatch }, view) {
     return new Promise((resolve) => {
       Promise.all([
         dispatch('delAllVisitedViews', view),
