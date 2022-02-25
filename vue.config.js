@@ -9,11 +9,8 @@ module.exports = {
     proxy: {
       // 当地址中有/api时会触发代理
       '/api': {
-        target: 'https://api.imooc-admin.lgdsunday.club/',
-        changeOrigin: true, //是否跨域
-        headers: {
-          'Access-Control-Allow-Origin': '*'
-        }
+        target: 'http://localhost:3000',
+        changeOrigin: true // 是否跨域
       }
     }
   },

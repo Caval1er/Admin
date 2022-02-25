@@ -10,15 +10,15 @@
         <h3 class="title">用户登录</h3>
       </div>
       <!-- username -->
-      <el-form-item prop="username">
+      <el-form-item prop="email">
         <span class="svg-container">
           <svg-icon icon="user"></svg-icon>
         </span>
         <el-input
-          placeholder="username"
-          name="username"
+          placeholder="email"
+          name="email"
           type="text"
-          v-model="loginForm.username"
+          v-model="loginForm.email"
         ></el-input>
       </el-form-item>
       <!-- password -->
@@ -54,19 +54,42 @@
 
 <script setup>
 // import * as ElIcons from '@element-plus/icons'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useStore } from 'vuex'
+import { useRoute, useRouter } from 'vue-router'
 import { validatePassword } from './rule'
 // 登录表单数据
 const loginForm = ref({
-  username: 'super-admin',
+  email: '245692085@qq.com',
   password: '123456'
 })
-
-// const name = 'Share'
+const redirect = ref('')
+const otherQuery = ref(null)
+const route = useRoute()
+const router = useRouter()
+// 处理query
+const getOtherQuery = (query) => {
+  return Object.keys(query).reduce((acc, cur) => {
+    if (cur !== 'redirect') {
+      acc[cur] = query[cur]
+    }
+    return acc
+  }, {})
+}
+watch(
+  route,
+  (to) => {
+    const query = to.query
+    if (query) {
+      redirect.value = query.redirect
+      otherQuery.value = getOtherQuery(query)
+    }
+  },
+  { immediate: true }
+)
 // 校验规则
 const loginRules = ref({
-  username: [
+  email: [
     {
       required: true,
       trigger: 'blur',
@@ -97,11 +120,15 @@ const loginFormRef = ref(null)
 const handleLogin = () => {
   // 进行表单校验
   loginFormRef.value.validate((valid) => {
-    if (!valid) return
+    if (!valid) return false
     loading.value = true
     store
       .dispatch('user/login', loginForm.value)
       .then(() => {
+        router.replace({
+          path: redirect.value || '/',
+          query: otherQuery.value
+        })
         loading.value = false
       })
       .catch((err) => {

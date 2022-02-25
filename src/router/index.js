@@ -51,7 +51,8 @@ export const asyncRoutes = [
     redirect: '/permission/p1',
     meta: {
       title: 'permission',
-      icon: 'el-icon-Share'
+      icon: 'el-icon-Share',
+      roles: ['editor']
     },
     children: [
       {
